@@ -1,0 +1,2 @@
+# for adding vi keyboard bindings to the terminal
+bind -v
