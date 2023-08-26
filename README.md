@@ -2,37 +2,8 @@
 
 My basic set of dotfiles (and other configs) to get up-and-running on a new machine.
 
-### Vim Setup
+To use, clone this repo and then run `./install.sh` followed by `./setup.sh`.
 
-Make sure you use a version of Vim that is compiled with the `+clipboard` option
-```
-sudo apt-get install vim vim-gtk
-```
-
-Install Vundle and desired plugins using these instructions
-```
-https://github.com/VundleVim/Vundle.vim
-https://www.tomordonez.com/install-plugin-vim/
-```
-
-### Konsole Setup
-
-Assuming Konsole (and Vundle plugins) are properly installed, set up colors
-```
-cp ./mpk.* ~/.local/share/konsole
-echo "[KonsoleWindow]" >> ~/.config/konsolerc
-echo "ShowMenuBarByDefault=false" >> ~/.config/konsolerc
-```
-
-### SSH Setup
-
-Generate the keys on your local machine
-```
-ssh-keygen -t rsa
-```
-
-Push your public key to any server
-```
-ssh-copy-id -i ~/.ssh/id_rsa.pub user@remoteserver
-```
-
+### TO-DO:
+* organize `i3` configs with include directives once distro repos update `i3` to version 4.20+
+* set up logging for `install.sh`

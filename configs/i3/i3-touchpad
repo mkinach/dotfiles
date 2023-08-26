@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Run 'xinput list' to find the ID of the touchpad,
+# then run 'xinput list-props <device id>'. Now look for the ID of the
+# property named 'Tapping Enabled'. Syntax to turn on is
+# xinput set-prop <device id> <property id> 1
+
+id=`xinput | grep Touchpad | cut -d'=' -f2`
+echo ${id:0:2}
+prop=`xinput list-props ${id:0:2} | grep "Tapping Enabled (" | cut -d'(' -f2 | cut -d')' -f1`
+echo $prop
+xinput set-prop ${id:0:2} ${prop} 1
+

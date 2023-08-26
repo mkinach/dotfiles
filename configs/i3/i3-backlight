@@ -1,0 +1,22 @@
+#! /bin/bash
+
+# increase/decrease brightness of screen using xrandr
+
+SCREEN="eDP-1-1"
+
+if [ -f /tmp/backlight.value ]; then
+  source /tmp/backlight.value
+  echo $val
+  case $1 in
+    up)   val=`bc <<< "scale=3; $val+0.05"`
+          if (( $(echo "$val > 1.0" |bc -l) )); then val=1.0; fi
+          echo "val=$val" > /tmp/backlight.value ;;
+    down) val=`bc <<< "scale=3; $val-0.05"`
+          if (( $(echo "$val < 0.0" |bc -l) )); then val=0.0; fi
+          echo "val=$val" > /tmp/backlight.value ;;
+  esac
+  xrandr --output ${SCREEN} --brightness $val
+else
+  xrandr --output ${SCREEN} --brightness 1
+  echo "val=1" > /tmp/backlight.value ;
+fi

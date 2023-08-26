@@ -1,0 +1,115 @@
+[global]
+    font = Monospace 13
+
+    # allow a small subset of html markup
+    # see http://developer.gnome.org/pango/stable/PangoMarkupFormat.html
+    # <b>bold</b>
+    # <i>italic</i>
+    # <s>strikethrough<s/>
+    # <u>underline</u>
+    
+    # if markup is not allowed, those tags will be stripped out of the message
+    allow_markup = yes
+
+    # the format of the message; possible variables are:
+    #   %a  appname
+    #   %s  summary
+    #   %b  body
+    #   %i  iconname (including its path)
+    #   %I  iconname (without its path)
+    #   %p  progress value if set ([  0%] to [100%]) or nothing
+    # markup is allowed
+    format = " %s"
+
+    # sort messages by urgency
+    sort = yes
+
+    # show how many messages are currently hidden (because of geometry)
+    indicate_hidden = yes
+
+    # alignment of message text.
+    # Possible values are "left", "center" and "right"
+    alignment = left
+
+    # split notifications into multiple lines if they don't fit into geometry
+    word_wrap = yes
+
+    # ignore newlines '\n' in notifications
+    ignore_newline = no
+
+    # the geometry of the window geometry [{width}]x{height}][+/-{x}+/-{y}]
+    # height is measured in number of notifications; everything else is in
+    # pixels. If the width is omitted but the height is given ("-geometry x2"),
+    # the message window expands over the whole screen (dmenu-like). If width
+    # is 0, the window expands to the longest message displayed.  A positive x
+    # is measured from the left, a negative from the right side of the screen.
+    # Y is measured from the top and down respectevly.  The width can be
+    # negative. In this case the actual width is the screen width minus the
+    # width defined in within the geometry option
+    geometry = "300x5-30+50"
+
+    # the transparency of the window. range: [0; 100] (this option will only
+    # work if a compositing window manager is present (e.g. xcompmgr, compiz,
+    # etc.))
+    transparency = 0
+
+    # don't remove messages if the user is idle (no mouse or keyboard input)
+    # for longer than idle_threshold seconds. Set to 0 to disable.
+    idle_threshold = 120
+
+    # which monitor should the notifications be displayed on.
+    monitor = 0
+
+    # display notification on focused monitor. Possible modes are:
+    # mouse: follow mouse pointer
+    # keyboard: follow window with keyboard focus
+    # none: don't follow anything
+    #
+    # "keyboard" needs a windowmanager that exports the _NET_ACTIVE_WINDOW property.
+    # This should be the case for almost all modern windowmanagers.
+    #
+    # if this option is set to mouse or keyboard, the monitor option will be
+    # ignored
+    follow = none
+
+    # height of a single line. If height is smaller than the font height, it
+    # will get raised to the font height. This adds empty space above and under
+    # the text
+    line_height = 0
+
+    # draw a line of 'separator_height' pixel height between two notifications
+    # (set to 0 to disable)
+    separator_height = 2
+
+    # padding between text and separator
+    padding = 8
+    horizontal_padding = 8
+
+    # define a color for the separator
+    # possible values are:
+    #  * auto: dunst tries to find a color fitting to the background
+    #  * foreground: use the same color as the foreground
+    #  * frame: use the same color as the frame.
+    #  * anything else will be interpreted as a X color
+    separator_color = frame
+
+[frame]
+    width = 0
+    color = "#000000"
+
+[urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks,
+    # otherwise the '#' and following  would be interpreted as a comment.
+    background = "#222222"
+    foreground = "#888888"
+    timeout = 10
+
+[urgency_normal]
+    background = "#285577"
+    foreground = "#ffffff"
+    timeout = 10
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    timeout = 0

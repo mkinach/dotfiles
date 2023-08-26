@@ -1,8 +1,7 @@
-" This is a custom Vim theme to match my konsole mpk.colorscheme. It should
+" This is a custom Vim theme to match my konsole 'mpk' colorscheme. It should
 " be placed in ~/.vim/bundle/vim-airline-themes/autoload/airline/themes
 " (assuming you are using the vim-airline plugin). It is modified from
 " the fairyfloss theme. At present, only cterm colors have been modified
-
 
 " Color palette
 let s:guiShadow      = "#3b3a32" " shadow
@@ -89,14 +88,3 @@ let s:IN2 = [ s:guiBgPurple , s:guiShadow , s:ctermBgPurple , s:ctermShadow ]
 let s:IN3 = [ s:guiBgPurple , s:guiShadow , s:ctermBgPurple , s:ctermShadow ]
 let g:airline#themes#mpk#palette.inactive = airline#themes#generate_color_map(s:IN1, s:IN2, s:IN3)
 let g:airline#themes#mpk#palette.inactive_modified = s:modified
-
-" CtrlP
-if !get(g:, 'loaded_ctrlp', 0)
-  finish
-endif
-
-let s:CP1 = [ s:guiWhite , s:guiDarkGray , s:ctermWhite , s:ctermDarkGray  ]
-let s:CP2 = [ s:guiWhite , s:guiGray , s:ctermWhite , s:ctermDarkGray  ]
-let s:CP3 = [ s:guiWhite , s:guiLavender , s:ctermWhite , s:ctermLavender  ]
-
-let g:airline#themes#mpk#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(s:CP1, s:CP2, s:CP3)

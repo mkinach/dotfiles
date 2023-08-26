@@ -1,0 +1,3 @@
+# for adding vi keyboard bindings to the terminal
+# (ref: jasoncoffin.com/utilize-vi-keyboard-shortcuts-in-your-terminal/)
+set editing-mode vi

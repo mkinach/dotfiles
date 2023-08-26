@@ -1,0 +1,134 @@
+format = """
+$username\
+$hostname\
+$sudo\
+$localip\
+$shlvl\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$package\
+$c\
+$python\
+$conda\
+$memory_usage\
+$custom\
+$cmd_duration\
+$line_break\
+$jobs\
+$status\
+$character"""
+
+add_newline = false
+
+palette = "mpk"
+
+[palettes.mpk]
+mygreen  = "#91ffc3"
+myorange = "#f9bb80"
+myred    = "#bd8293"
+myblue   = "#6591a9"
+mylblue  = "#64b9cc"
+
+[line_break]
+disabled = true
+
+# ----------------------------------
+
+[character]
+disabled = false
+success_symbol = "❯"
+error_symbol = "❯"
+#error_symbol = "[\\$](bold red)"
+
+[cmd_duration]
+disabled = false
+min_time = 5000
+style = "mygreen"
+format = '\(took [$duration]($style)\) '
+show_notifications = false
+min_time_to_notify = 45000
+notification_timeout = 10000
+
+[custom]
+disabled = true
+
+[directory]
+disabled = false
+style = "myorange"
+format = '\[[$path]($style)\] '
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[hostname]
+ssh_only = false
+style = "myred"
+format = '[@$hostname ]($style)'
+
+[jobs]
+disabled = false
+symbol = 'jobs'
+style = "myorange"
+format = '[\[$number $symbol\]]($style) '
+threshold = 1
+number_threshold = 1
+
+[localip]
+disabled = true
+ssh_only = false
+
+[memory_usage]
+disabled = false
+threshold = 75
+symbol = "RAM"
+format = '\($symbol $ram_pct\) '
+
+[package]
+disabled = true
+
+[shlvl]
+disabled = true
+
+[status]
+disabled = true
+
+[sudo]
+disabled = false
+symbol = "root"
+style = "mygreen"
+format = '[as $symbol]($style) '
+
+[username]
+show_always = true
+style_user = "myred"
+style_root = "myblue"
+format = '[$user]($style)'
+
+# ----------------------------------
+
+[c]
+disabled = true
+
+[conda]
+disabled = false
+symbol = "conda "
+
+[git_branch]
+disabled = false
+style = "mylblue"
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+disabled = false
+style = "mygreen"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+
+[python]
+disabled = false
+symbol = "Python "

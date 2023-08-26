@@ -1,0 +1,9 @@
+[user]
+	name = mpkin
+	email = mpkin@users.noreply.github.com
+[core]
+	editor = vim
+[merge]
+	tool = kompare
+[diff]
+	guitool = kompare

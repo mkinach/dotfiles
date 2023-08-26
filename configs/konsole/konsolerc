@@ -1,0 +1,11 @@
+[Desktop Entry]
+DefaultProfile=mpk.profile
+
+[KonsoleWindow]
+ShowMenuBarByDefault=false
+MenuBar=Disabled
+ToolBarsMovable=Disabled
+
+[PrintOptions]
+PrinterFriendly=true
+ScaleOutput=true

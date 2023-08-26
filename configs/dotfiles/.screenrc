@@ -1,11 +1,14 @@
-# A copy of /etc/screenrc with my own personal additions.
+# $Id: screenrc,v 1.15 2003/10/08 11:39:03 zal Exp $
 #
-# Commands in this file are used to set options, bind screen functions to
-# keys, redefine terminal capabilities, and to automatically establish one or
-# more windows at the beginning of your screen session.
+#   A copy of /etc/screenrc with my own personal additions.
 #
-# This is not a comprehensive list of options, look at the screen manual for
-# details on everything that you can put in this file.
+#   Commands in this file are used to set options, bind screen functions to
+#   keys, redefine terminal capabilities, and to automatically establish one or
+#   more windows at the beginning of your screen session.
+#
+#   This is not a comprehensive list of options, look at the screen manual for
+#   details on everything that you can put in this file.
+#
 
 # ------------------------------------------------------------------------------
 # MY OWN CUSTOM SETTINGS
@@ -18,7 +21,7 @@ altscreen on
 # enable mouse scrolling and scroll bar history scrolling
 termcapinfo xterm* ti@:te@
 
-# replace the default Ctrl+A -> Ctrl+J (for terminal shortcut conflicts)
+# replace the default Ctrl+A -> Ctrl+J (rem ves Terminal shortcut conflicts)
 # escape ^Jj
 
 #===============================================================================
