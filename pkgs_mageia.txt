@@ -1,0 +1,6 @@
+vim-X11
+i3
+feh
+dunst
+konsole
+git
