@@ -70,10 +70,6 @@ exec_always --no-startup-id xset r rate 125 35
 # enable multimonitor output
 exec_always --no-startup-id .config/i3/i3-monitors
 
-# change orientation of HDMI-1-1 display
-bindsym $mod+backslash exec --no-startup-id "xrandr --output HDMI-1-1 --rotate normal"
-bindsym $mod+Shift+backslash exec --no-startup-id "xrandr --output HDMI-1-1 --rotate left"
-
 # set up night mode
 bindsym $mod+equal exec --no-startup-id redshift -O 5500 -b 0.85
 bindsym $mod+Shift+plus exec --no-startup-id redshift -x

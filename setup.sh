@@ -27,10 +27,10 @@ touch ${SCRIPTDIR}/tmp/tmp_vimrc
 if ! which vim >/dev/null 2>&1; then
   printf "\n Vim not installed -- skipping.\n"
   SKIP_VIM=1
-elif ! vim --version | grep -q +clipboard >/dev/null 2>&1; then
+elif ! which gvim >/dev/null 2>&1 && gvim --version | grep -q +clipboard ; then
   printf "\n WARNING: current Vim installation does not support copy-to-clipboard\n"
-  printf "          (you may want to install another version, e.g. gvim).\n"
-  SKIP_VIM=1
+  printf "            (you may want to install another version, e.g. gvim,\n"
+  printf "             if the problem is not fixed after this script finishes).\n"
 fi
 
 if ! which i3 >/dev/null 2>&1; then
@@ -114,7 +114,7 @@ fi
 if [[ -z ${SKIP_KONSOLE} ]]; then
   rm -rf "${SHAREDIR}/konsole" >/dev/null 2>&1
   ln -sf "${SCRIPTDIR}/configs/konsole" "${SHAREDIR}/konsole"
-  ln -sf "${SCRIPTDIR}/configs/konsole/konsolerc" "${CONFIGDIR}/konsolerc"
+  cp "${SCRIPTDIR}/configs/konsole/konsolerc" "${CONFIGDIR}/konsolerc"
 fi
 
 # link custom .desktop files

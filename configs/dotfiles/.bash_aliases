@@ -16,7 +16,7 @@ alias la='ls -alh'
 alias lh='ls -dlhF .* | grep -v "^d"' # hidden files only
 alias lls='ls'  # common typo
 alias rp='realpath'
-alias rs='source ~/.profile'
+alias rs='source ~/.bashrc'
 alias diff='diff --color'
 alias hi='history'
 alias dul='du -ahx --max-depth=1 . | sort -k1 -rh | tac' # list and sort
@@ -45,14 +45,22 @@ alias gt='git ls-tree -r HEAD --name-only'
 function gsh { [ $# -eq 2 ] && git show ${1}:${2} > /tmp/${1}_${2} && vim /tmp/${1}_${2}; }
 
 alias bashrc='vim ~/.bashrc'
-alias aliases='vim ~/.bash_aliases'
+alias {aliases,bash_aliases}='vim ~/.bash_aliases'
 alias vimrc='vim ~/.vimrc'
+
+DOTFILES=$(dirname $(dirname $(dirname $(realpath ~/.bashrc))))
+alias dotfiles="cd ${DOTFILES}"
+alias tmp_bashrc="vim ${DOTFILES}/tmp/tmp_bashrc"
+alias tmp_aliases="vim ${DOTFILES}/tmp/tmp_aliases"
+alias tmp_vimrc="vim ${DOTFILES}/tmp/tmp_vimrc"
+alias prompt="vim ${DOTFILES}/configs/starship/starship.toml"
+alias i3="cd ${DOTFILES}/configs/i3"
 
 alias python='python3'
 
 # initialize conda
 py() {
-  source ~/opt/miniconda/initialize.sh  # initialize
+  source ~/opt/miniconda/bin/activate  # initialize
 
   if [ $# -gt 1 ]; then
     echo "Error: Too many arguments; expected 0 or 1 argument."
