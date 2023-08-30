@@ -10,7 +10,7 @@ case ${ANS_UPDATE} in
   Y) case ${ID} in
        ubuntu) sudo apt -y update
                sudo apt -y upgrade ;;
-       mageia) su -c "urpmi --force --auto-update" ;;
+       *) ;;
      esac ;;
   *) ;;
 esac
@@ -21,9 +21,7 @@ case ${ID} in
          sudo apt install -y "$package"
      done < pkgs_ubuntu.txt
      ;;
-   mageia) 
-     PACKAGES=$(cat pkgs_mageia.txt | tr '\n' ' ')
-     su -c "urpmi --auto ${PACKAGES}"
+   *) 
      ;;
 esac
 
