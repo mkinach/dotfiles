@@ -51,10 +51,10 @@ bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t error -m 'Do you really 
 bindsym $mod+Shift+b exec --no-startup-id "i3-nagbar -t error -m 'Do you really want to reboot?' -b 'Yes, reboot' 'reboot'"
 
 # enable volume controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && play -q -n synth 0.05 sin 580 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
-bindsym Mod4+Right exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && play -q -n synth 0.05 sin 580 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && play -q -n synth 0.05 sin 580 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
-bindsym Mod4+Left exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && play -q -n synth 0.05 sin 580 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && play -q -n synth 0.05 sin 580 norm -10 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
+bindsym Mod4+Right exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && play -q -n synth 0.05 sin 580 norm -10 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && play -q -n synth 0.05 sin 580 norm -10 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
+bindsym Mod4+Left exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && play -q -n synth 0.05 sin 580 norm -10 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
 
 # enable screen brightness function keys

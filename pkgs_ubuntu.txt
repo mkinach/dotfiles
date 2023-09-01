@@ -4,4 +4,3 @@ feh
 dunst
 konsole
 git
-arandr

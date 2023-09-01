@@ -3,8 +3,10 @@ DefaultProfile=mpk.profile
 
 [KonsoleWindow]
 ShowMenuBarByDefault=false
-MenuBar=Disabled
 ToolBarsMovable=Disabled
+
+[MainWindow]
+MenuBar=Disabled
 
 [PrintOptions]
 PrinterFriendly=true

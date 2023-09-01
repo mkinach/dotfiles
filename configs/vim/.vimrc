@@ -142,6 +142,7 @@ nnoremap x "_x
 " Paste the current date & time:
 nnoremap <leader>t :pu=strftime('%c')<CR>kddo
 " Execute shell command and show stdout/stderr in split window:
+" (press Ctrl-w,Shift-n to convert to scrollable buffer and i to return)
 nnoremap <leader>s :term ++shell <CR>
 " Toggle readonly mode:
 nnoremap <leader>r :set readonly!<CR>
@@ -151,8 +152,8 @@ nnoremap <silent> <c-j> :resize +1<CR>
 nnoremap <silent> <c-h> :vertical resize -3<CR>
 nnoremap <silent> <c-l> :vertical resize +3<CR>
 " Switch between splits:
-"nnoremap ` <c-w>W
-nnoremap <tab> <c-w>W
+"nnoremap ` <C-w>W
+nnoremap <Tab> <C-w>W
 " Switch between buffers:
 nnoremap , :bp<CR>
 nnoremap . :bn<CR>

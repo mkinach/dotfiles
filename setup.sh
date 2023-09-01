@@ -18,6 +18,7 @@ CONFIGDIR="${HOME}/.config"
 mkdir -p ${OPTDIR}
 mkdir -p ${TMPDIR}
 touch ${TMPDIR}/scratch.txt
+mkdir -p ${TMPDIR}/no-backup
 mkdir -p ${SCRIPTDIR}/tmp/desktop
 touch ${SCRIPTDIR}/tmp/tmp_aliases
 touch ${SCRIPTDIR}/tmp/tmp_bashrc
