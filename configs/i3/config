@@ -64,6 +64,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id .config/i3/i3-backlight down
 # enable the laptop touchpad
 exec_always --no-startup-id .config/i3/i3-touchpad
 
+# enable suspend functionality
+bindsym $mod+F1 exec --no-startup-id "systemctl suspend"
+
 # set key delay
 exec_always --no-startup-id xset r rate 125 35
 
