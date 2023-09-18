@@ -5,7 +5,7 @@ SCREEN2="HDMI-1-1"
 
 xrandr --query | grep "${SCREEN2} connected"
 case $? in
-  0) xrandr --output ${SCREEN1} --mode 1920x1080 --pos 0x0 --rotate normal --output ${SCREEN2} --mode 1680x1050 --pos 1920x15 --rotate normal ;;
+  0) xrandr --output ${SCREEN1} --mode 1920x1080 --pos 0x0 --rotate normal --output ${SCREEN2} --mode 1920x1080 --pos 1920x0 --rotate normal ;;
   *) xrandr --output ${SCREEN1} --mode 1920x1080 --rotate normal --output ${SCREEN2} --off --pos 1920x0 ;;
 esac
 

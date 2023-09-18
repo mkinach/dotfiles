@@ -10,6 +10,7 @@ alias {vd,vid}='vim .'
 alias svi='sudo -E vim'
 alias mysudo='sudo -E env "PATH=$PATH"'
 alias please='sudo'
+alias sk='sudo -k'
 alias l='ls --color -F'
 alias ls='ls --color -F'
 alias la='ls -alh'
@@ -43,6 +44,8 @@ alias gd='git diff'
 alias gdt='git difftool'
 alias gt='git ls-tree -r HEAD --name-only'
 function gsh { [ $# -eq 2 ] && git show ${1}:${2} > /tmp/${1}_${2} && vim /tmp/${1}_${2}; }
+alias gc='git commit'
+alias gcm='git commit -m'
 
 alias bashrc='vim ~/.bashrc'
 alias {aliases,bash_aliases}='vim ~/.bash_aliases'
@@ -55,11 +58,12 @@ alias tmp_aliases="vim ${DOTFILES}/tmp/tmp_aliases"
 alias tmp_vimrc="vim ${DOTFILES}/tmp/tmp_vimrc"
 alias prompt="vim ${DOTFILES}/configs/starship/starship.toml"
 alias i3="cd ${DOTFILES}/configs/i3"
+alias mypyplot="python ${DOTFILES}/scripts/mypyplot.py"
 
 alias python='python3'
 
-# initialize conda
-py() {
+# initialize conda environments
+function py() {
   source ~/opt/miniconda/bin/activate  # initialize
 
   if [ $# -gt 1 ]; then
@@ -75,9 +79,6 @@ py() {
     echo "Activated conda environment: $1"
   fi
 }
-
-# activate non-base conda environments
-alias pya='conda activate'
 # deactivate a conda environment
 alias pyd='conda deactivate'
 # list conda environments
@@ -85,7 +86,7 @@ alias pyl='conda info --envs'
 # create a conda environment
 alias pyc='conda create --name'
 # remove a conda environment
-pyr() {
+function pyr() {
   conda remove --name $1 --all
 }
 # save conda environment
@@ -118,7 +119,7 @@ then
 fi
 
 # find a filename containing a string in cwd & all subdirectories
-myfind() {
+function myfind() {
   err=0;
   if [ $# -ne 1 ]
   then
@@ -130,12 +131,12 @@ myfind() {
 }
 
 # find a file containing a string in cwd & all subdirectories
-myfindstring() {
+function myfindstring() {
   grep --color=always -RiHsn "$1" .
   }
 
 # search packages by name
-pkgs() {
+function pkgs() {
   printf "\n\e[01;33m Available from repositories:  \e[0m\n\n"
   apt search "$1";
   printf "\n\n\e[01;33m Installed:  \e[0m\n\n"
@@ -148,7 +149,7 @@ alias pkgsv='apt policy'
 
 # get info on default program associated with file
 # (see https://unix.stackexchange.com/a/107508)
-defapp() {
+function defapp() {
   if [[ $# -eq 0 ]] ; then
     printf "\n Syntax: defapp [file]\n\n"
     return
@@ -167,7 +168,7 @@ defapp() {
   }
 
 # associate filetype with program via .desktop file
-sdefapp() {
+function sdefapp() {
   if [[ $# -eq 0 ]] ; then
     printf "\n Syntax: sdefapp [file.desktop] [file]\n\n"
     return
@@ -176,7 +177,7 @@ sdefapp() {
   }
 
 # open file in system default application
-op() {
+function op() {
   for var in "$@"
   do
     xdg-open "$var" >/dev/null 2>&1 &
@@ -184,12 +185,12 @@ op() {
 }
 
 # locate file, but only within $HOME
-locateh() {
+function locateh() {
   locate $1 | grep $HOME
 }
 
 # take diff of files over SSH
-diffssh() {
+function diffssh() {
   case $# in
     3) ssh $1 "cat $2" | diff - $3;;
     *) echo " Syntax: diffssh user@remote_host remote_file.txt local_file.txt"; return 1;;
@@ -197,14 +198,14 @@ diffssh() {
 }
 
 # swap the names of two files
-swapnames() {
+function swapnames() {
   mv $1 $1.tmp
   mv $2 $1
   mv $1.tmp $2
 }
 
 # copy directory contents except for files matching pattern
-cp-excl(){
+function cp-excl(){
   case $# in
     3) ;;
     *) echo " Syntax: cp-excl <source-dir> <dest-dir> <excl-pattern>"; return 1;;
@@ -217,7 +218,7 @@ cp-excl(){
 }
 
 # untar a file
-utar() {
+function utar() {
   case $# in
     1) ;;
     *) echo " Error: please provide only one tarball!"; return 1;;
@@ -236,7 +237,7 @@ utar() {
 }
 
 # unzip a file
-uzip() {  # name of function must not clash with standard 'unzip' command!
+function uzip() {  # name of function must not clash with standard 'unzip' command!
   case $# in
     1) ;;
     *) echo " Error: please provide only one zip file!"; return 1;;
@@ -251,7 +252,7 @@ uzip() {  # name of function must not clash with standard 'unzip' command!
 }
 
 # zip up a file
-zipup() {
+function zipup() {
   case $# in
     1) ;;
     *) echo " Error: please provide only one directory to zip!"; return 1;;

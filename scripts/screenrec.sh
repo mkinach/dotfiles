@@ -6,14 +6,14 @@
 
 # usage instructions
 usage() {
-    echo "Usage: $0 [-o output_file] -w|-s"
-    echo "Options:"
-    echo "  -o <output_file>: Output MP4 file"
-    echo "  -w: Record an entire application window"
-    echo "  -s: Record a user-specified selection of the screen"
-    echo 
-    echo " Please provide one of -w or -s (but not both)."
-    exit 1
+  echo "Usage: $0 [-o output_file] -w|-s"
+  echo "Options:"
+  echo "  -o <output_file>: Output MP4 file"
+  echo "  -w: Record an entire application window"
+  echo "  -s: Record a user-specified selection of the screen"
+  echo 
+  echo " Please provide one of -w or -s (but not both)."
+  exit 1
 }
 
 # checking for installed software
@@ -23,20 +23,20 @@ which slop > /dev/null 2>&1 || { echo 'ffmpeg not found. Exiting.' ; exit 1; }
 
 # parse command-line arguments
 while getopts "o:ws" opt; do
-    case $opt in
+  case $opt in
 
-        o) # append .mp4 extension if not provided
-           output_file=$OPTARG
-           if [[ ! $output_file == *".mp4" ]]; then output_file="$output_file.mp4"; fi
-           ;;
+    o) # append .mp4 extension if not provided
+       output_file=$OPTARG
+       if [[ ! $output_file == *".mp4" ]]; then output_file="$output_file.mp4"; fi
+       ;;
 
-        w) wflag=1 ;;
-        
-        s) sflag=1 ;;
+    w) wflag=1 ;;
+    
+    s) sflag=1 ;;
 
-        *) usage ;;
+    *) usage ;;
 
-    esac
+  esac
 done
 
 # check for either -w or -s (but not both)
