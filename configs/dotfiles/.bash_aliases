@@ -67,30 +67,54 @@ function py() {
   source ~/opt/miniconda/bin/activate  # initialize
 
   if [ $# -gt 1 ]; then
-    echo "Error: Too many arguments; expected 0 or 1 argument."
+    echo "Error: too many arguments; expected 0 or 1 argument."
     exit 1
   fi
 
   if [ $# -eq 0 ]; then
-    conda activate
-    echo "Activated conda environment: base"
-  else
-    conda activate $1  # activate named env
-    echo "Activated conda environment: $1"
+    conda activate && echo "Activated conda environment: base"
+  else  # activate named env
+    conda activate $1 && echo "Activated conda environment: $1"
   fi
 }
 # deactivate a conda environment
 alias pyd='conda deactivate'
 # list conda environments
 alias pyl='conda info --envs'
-# create a conda environment
-alias pyc='conda create --name'
+# create a conda environment (note that 'pip' needs to be here to prevent package management issues)
+alias pyc='conda create pip --name'
 # remove a conda environment
 function pyr() {
   conda remove --name $1 --all
 }
 # save conda environment
 alias pys='conda list -e > requirements_conda.txt; pip list --format=freeze > requirements_pip.txt'
+
+# prevent conda installations in the base environment
+function pyi() {
+    if [[ "$CONDA_DEFAULT_ENV" == "base" ]]; then
+      echo "Error: you are trying to install packages in the base environment (use 'conda install' to bypass)"
+    else
+        command conda install "$@"
+    fi
+}
+
+# prevent pip installations outside of non-base conda environment
+function pip() {
+    if ! command -v pip &> /dev/null; then
+        echo "Error: 'pip' is not installed"
+        return 1
+    fi
+
+    if [[ -z "$CONDA_DEFAULT_ENV" || "$CONDA_DEFAULT_ENV" == "base" ]]; then
+        echo "Error: not in a valid conda environment (use 'pips' to bypass)"
+    else
+        pip "$@"
+    fi
+}
+
+# bypass the above pip redefinition
+alias pips='command pip'
 
 # trick to remember cd history
 function cd
@@ -180,7 +204,7 @@ function sdefapp() {
 function op() {
   for var in "$@"
   do
-    xdg-open "$var" >/dev/null 2>&1 &
+    nohup xdg-open "$var" >/dev/null 2>&1 &
   done
 }
 

@@ -101,6 +101,7 @@ if [[ -z ${SKIP_VIM} ]]; then
   gvim -v +PluginInstall +qall && \
   ln -sf "${SCRIPTDIR}/configs/vim/mpk.vim" \
          "${HOME}/.vim/bundle/vim-airline-themes/autoload/airline/themes/mpk.vim"
+  mkdir -p "${HOME}/.vim/undo"
 fi
 
 [[ -z ${SKIP_I3} ]] && rm -rf "${CONFIGDIR}/i3" >/dev/null 2>&1 \

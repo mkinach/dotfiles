@@ -80,6 +80,9 @@ bindsym $mod+Shift+plus exec --no-startup-id redshift -x
 # set up dunst notification daemon on login
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
+# launch KDE wifi applet
+bindsym $mod+g exec --no-startup-id "plasmawindowed org.kde.plasma.networkmanagement"
+
 
 ########################################################################
 # APPEARANCE
@@ -275,10 +278,9 @@ for_window [class="gwenview"] floating enable
 for_window [class="gnuplot"] floating enable
 for_window [class="MATLAB"] floating enable
 for_window [class="Tk"] floating enable
+for_window [class="feh"] floating enable
 
 # always open programs in their own workspace (via xprop)
-assign [class="akregator"] Akregator
-assign [class="QuiteRss"] RSS
 assign [class="VirtualBox"] VirtualBox
 assign [class="KeePass2"] KeePass
 assign [class="java-lang-Thread"] Maple

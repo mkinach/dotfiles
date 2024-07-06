@@ -12,10 +12,13 @@ ctrl_c()
 }
 trap ctrl_c 2  #SIGINT
 
+count=0
+
 case $# in
   1) while read dir
       do
-        printf "\nProcessing ${dir}\n\n"
+        ((count++))
+        printf "\n ${count}  Processing ${dir}\n\n"
       
         # do something here!
 

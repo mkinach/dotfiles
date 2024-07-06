@@ -36,7 +36,6 @@ let g:vimwiki_key_mappings = { 'table_mappings': 0 }
 " Some vim-airline settings
 " see :help airline-customization, :help airline-configuration
 set laststatus=2   " needed for basic functionality
-set t_Co=256       
 let g:airline_section_b = ''
 let g:airline_section_c = '%0.30F'
 let g:airline_section_y = ''
@@ -87,6 +86,12 @@ set background=dark
 syntax on
 set t_Co=256       
 
+"" Set persistent undo
+"set undofile
+"set undodir=$HOME/.vim/undo  " this directory must already exist!
+"set undolevels=1000
+"set undoreload=10000
+
 " Open blank files in insert mode 
 au BufNewFile * startinsert
 
@@ -112,8 +117,8 @@ command WW set textwidth=72  " enable a word wrap
 command NW set textwidth=0   " disable
 
 " Color characters beyond the word wrap distance
-highlight ColorColumn ctermbg=magenta ctermfg=black
-call matchadd('ColorColumn', '\%73v', 100)
+"highlight ColorColumn ctermbg=magenta ctermfg=black
+"call matchadd('ColorColumn', '\%73v', 100)
 "set textwidth=72
 
 " Define some general key remappings
