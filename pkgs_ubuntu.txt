@@ -1,4 +1,4 @@
-vim-gtk
+vim-gtk3
 i3
 feh
 dunst
