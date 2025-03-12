@@ -103,6 +103,17 @@ if [[ -z "${SKIP_VIM}" ]]; then
 	gvim -v +PluginInstall +qall &&
 		ln -sf "${SCRIPTDIR}/configs/vim/mpk.vim" \
 			"${HOME}/.vim/bundle/vim-airline-themes/autoload/airline/themes/mpk.vim"
+  [ -d "${HOME}/.vim/bundle/vimspector/configurations/linux/_all" ] && 
+    ln -sf "${SCRIPTDIR}/configs/vim/.vimspector.json_python" \
+      "${HOME}/.vim/bundle/vimspector/configurations/linux/_all/python.json"
+  [ -d "${HOME}/.vim/bundle/vimspector/configurations/linux/_all" ] && 
+    ln -sf "${SCRIPTDIR}/configs/vim/.vimspector.json_bash" \
+      "${HOME}/.vim/bundle/vimspector/configurations/linux/_all/bash.json"
+	gvim -v +VimspectorInstall +qall
+  [ -d "${HOME}/.vim/bundle/YouCompleteMe" ] && 
+    ln -sf "${SCRIPTDIR}/configs/vim/.YouCompleteMe.global_extra_conf.py" \
+      "${HOME}/.vim/bundle/YouCompleteMe/global_extra_conf.py"
+  cd "${HOME}/.vim/bundle/YouCompleteMe" && python3 install.py --clangd-completer
 	mkdir -p "${HOME}/.vim/undo"
 fi
 

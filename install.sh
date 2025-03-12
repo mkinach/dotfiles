@@ -23,12 +23,22 @@ esac
 
 case ${ID} in
 ubuntu)
-	while read -r package; do
-		sudo apt install -y "$package"
+	while read -r PACKAGE; do
+		# ignore empty lines and comments
+		[[ -z "${PACKAGE}" || "${PACKAGE}" =~ ^# ]] && continue
+		sudo apt install -y "${PACKAGE}"
 	done <pkgs_ubuntu.txt
 	;;
 *) ;;
 esac
+
+if command -v pipx &>/dev/null; then
+	while read -r PACKAGE; do
+		# ignore empty lines and comments
+		[[ -z "${PACKAGE}" || "${PACKAGE}" =~ ^# ]] && continue
+		pipx install "${PACKAGE}"
+	done <pkgs_pipx.txt
+fi
 
 # install starship
 wget -P /tmp https://starship.rs/install.sh && mkdir -p "${HOME}/opt/starship" && sh /tmp/install.sh -y -b "${HOME}/opt/starship"

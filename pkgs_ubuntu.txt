@@ -4,4 +4,19 @@ feh
 dunst
 konsole
 git
+j4-dmenu-desktop
+pipx
+
+# for screenrec.sh
+slop
+
+# for vimspector/ALE
+gdb
 shellcheck
+nodejs
+shfmt
+clang-format
+
+# for YouCompleteMe
+cmake
+python3-dev

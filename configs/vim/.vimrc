@@ -54,6 +54,7 @@ let g:airline_disable_statusline = 0
 let g:airline_theme='mpk'
 
 " Some vimspector settings
+" (see https://github.com/puremourning/.vim-mac/blob/master/vimspector-conf/configurations/macos/)
 let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'vscode-bash-debug' ]
 let g:vimspector_enable_mappings = 'HUMAN'
 
@@ -176,13 +177,16 @@ set foldlevel=2
 command NN set nonumber!                " exclamation toggles the binary option
 command RO set readonly!
 command WW set wrap | set textwidth=72  " enable a word wrap
-command NW set nowrap                   " disable
+command NW set nowrap                   " disable a word wrap
 set textwidth=0                         " disable by default
 
 " Color characters beyond the word wrap distance
 "highlight ColorColumn ctermbg=magenta ctermfg=black
 "call matchadd('ColorColumn', '\%73v', 100)
 "set textwidth=72
+
+" Color trailing whitespace
+autocmd VimEnter * :highlight TrailingSpaces ctermbg=red guibg=red | :match TrailingSpaces /\s\+$/
 
 " Define some general key remappings
 " Here are some keys almost never needed (in normal mode): <Space> <CR> <BS> <F2>-<F10> <F12> -
@@ -236,8 +240,6 @@ nnoremap <leader>e :Explore<CR>
 nnoremap <leader>- :put! =repeat('-', 72)<CR>
 " Write a line of equals:
 nnoremap <leader>= :put! =repeat('=', 72)<CR>
-" Highlight trailing whitespace:
-nnoremap <leader>w :highlight TrailingSpaces ctermbg=red guibg=red<CR> :match TrailingSpaces /\s\+$/<CR> :echo "Trailing spaces highlighted!"<CR>
 " Close vimspector:
 nnoremap <F2> :VimspectorReset<CR>
 " Access popups in vimspector:

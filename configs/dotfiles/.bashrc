@@ -3,7 +3,7 @@
 
 # define your custom aliases in a different file
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 # source other bashrc and aliases
