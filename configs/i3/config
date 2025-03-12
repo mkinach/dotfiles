@@ -6,6 +6,10 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# source other i3 settings
+include ../../tmp/tmp_i3
+
+
 ########################################################################
 # SYSTEM SETTINGS & SHORTCUTS
 ########################################################################
@@ -14,12 +18,13 @@
 
 # set script variables
 set $mod Mod1
-set $browser --no-startup-id /usr/bin/firefox
+#set $browser --no-startup-id /usr/bin/firefox
+set $browser --no-startup-id /snap/bin/firefox
 set $terminal --no-startup-id /usr/bin/konsole
-#set $inner_gaps 20 
-#set $outer_gaps 20 
+#set $inner_gaps 20
+#set $outer_gaps 20
 set $inner_gaps 0
-set $outer_gaps 0 
+set $outer_gaps 0
 
 # kill focused window
 bindsym $mod+q kill
@@ -33,7 +38,8 @@ bindsym $mod+Shift+r restart
 # start dmenu (a program launcher)
 # Note: i3-dmenu-desktop only displays applications w/ a .desktop file
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'monospace-12'"
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -fn 'monospace-12'"
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -fn 'monospace-12'"
 
 # launch terminal emulator
 bindsym $mod+Return exec --no-startup-id $terminal
@@ -80,8 +86,8 @@ bindsym $mod+Shift+plus exec --no-startup-id redshift -x
 # set up dunst notification daemon on login
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
-# launch KDE wifi applet
-bindsym $mod+g exec --no-startup-id "plasmawindowed org.kde.plasma.networkmanagement"
+# launch KDE network manager
+bindsym $mod+g exec --no-startup-id plasmawindowed org.kde.plasma.networkmanagement
 
 
 ########################################################################
@@ -139,6 +145,7 @@ client.focused  #252525 #d2c5bc #252525 #252525 #d2c5bc
 
 # hide borders on workspaces with only one visible window
 hide_edge_borders smart
+
 
 ########################################################################
 # LAYOUT & MOVEMENT
@@ -253,6 +260,7 @@ bindsym $mod+Shift+s move scratchpad
 # toggle scratchpad windows
 bindsym $mod+s [class=.*] scratchpad show
 
+
 ########################################################################
 # FLOATING WINDOW / PROGRAM-SPECIFIC SETTINGS
 ########################################################################
@@ -269,30 +277,14 @@ bindsym $mod+m floating toggle; sticky toggle
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# force DV (or any XForms app) to load as floatable GUI
-# (see unix.stackexchange.com/a/468905)
-for_window [class="XForm"] floating enable
-
-# force certain programs to load as floatable GUI
-for_window [class="gwenview"] floating enable
-for_window [class="gnuplot"] floating enable
-for_window [class="MATLAB"] floating enable
-for_window [class="Tk"] floating enable
+# force certain programs to load as floatable
 for_window [class="feh"] floating enable
 
 # always open programs in their own workspace (via xprop)
-assign [class="VirtualBox"] VirtualBox
-assign [class="KeePass2"] KeePass
-assign [class="java-lang-Thread"] Maple
-assign [class="Gimp"] GIMP
-assign [class="skrooge"] Skrooge
+#assign [class="Gimp"] GIMP
 
 # force titlebars on certain programs and no gaps
-for_window [class="Inkscape"] border normal
-for_window [class="java-lang-Thread"] border normal
-
-# for my Wacom tablet scripts (see tablet and inkscape-toggle)
-#bindsym --release $mod+grave exec --no-startup-id "$HOME/files/software/inkscape-toggle"
+#for_window [class="Inkscape"] border normal
 
 # autostart programs on i3 startup
 #exec --no-startup-id klipper

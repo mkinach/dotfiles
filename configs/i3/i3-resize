@@ -1,12 +1,14 @@
-#!/bin/bash
-# Modified from github.com/sandeel/i3-new-workspace
+#! /bin/bash
+
+# modified from github.com/sandeel/i3-new-workspace
+# resizes tiled windows in a specific direction
 
 [ -z "$1" ] && echo "No direction provided" && exit 1
 distanceStr="2 px or 2 ppt"
 
 moveChoice() {
   i3-msg resize "$1" "$2" "$distanceStr" | grep '"success":true' || \
-   i3-msg resize "$3" "$4" "$distanceStr"
+  i3-msg resize "$3" "$4" "$distanceStr"
 }
 
 case $1 in

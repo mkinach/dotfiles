@@ -7,7 +7,7 @@
     # <i>italic</i>
     # <s>strikethrough<s/>
     # <u>underline</u>
-    
+
     # if markup is not allowed, those tags will be stripped out of the message
     allow_markup = yes
 

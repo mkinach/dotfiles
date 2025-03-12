@@ -16,7 +16,7 @@ if [ -f ${DOTFILES_PATH}/tmp/*aliases ]; then . ${DOTFILES_PATH}/tmp/*aliases; f
 HISTCONTROL=ignoreboth
 
 # add to PATH
-export PATH="$PATH:${DOTFILES_PATH}/scripts"
+export PATH="$PATH:${DOTFILES_PATH}/scripts:${HOME}/.local/bin"
 
 # append to the history file, don't overwrite it
 shopt -s histappend

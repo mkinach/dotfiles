@@ -1,16 +1,18 @@
-#!/bin/bash
-# Modified from github.com/sandeel/i3-new-workspace
-# Script creates free workspace with lowest possible number
-# and moves focused container to it
+#! /bin/bash
+
+# modified from github.com/sandeel/i3-new-workspace
+# creates free workspace with lowest possible number and moves focused container to it
 
 WS=$(i3-msg -t get_workspaces)
-for i in {1..29} ; do
-    if [[ $WS != *"\"num\":$i"* ]] ; then
-        case "$1" in
-          "all") i3-msg rename workspace to $i ;;
-          *) i3-msg move container to workspace number $i
-             i3-msg workspace number $i ;;
-        esac
-        break
-    fi
+for i in {1..29}; do
+	if [[ $WS != *"\"num\":$i"* ]]; then
+		case "$1" in
+		"all") i3-msg rename workspace to "${i}" ;;
+		*)
+			i3-msg move container to workspace number "${i}"
+			i3-msg workspace number "${i}"
+			;;
+		esac
+		break
+	fi
 done

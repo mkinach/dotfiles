@@ -9,17 +9,17 @@ let s:guiDarkGray    = "#49483e" " dark gray
 let s:guiBgPurple    = "#8076aa" " background purple
 let s:guiGray        = "#49483e" " gray
 let s:guiViolet      = "#63588d" " violet
-let s:guiDustyLilac  = "#efe6ff" "dusty-lilac
-let s:guiSeafoam     = "#c2ffdf" "seafoam
-let s:guiSilver      = "#f8f8f0" "silver
-let s:guiFuschia     = "#f92672" "fuschia
-let s:guiPeach       = "#ff857f" "peach
-let s:guiGold        = "#e6c000" "gold
-let s:guiDarkSeafoam = "#80ffbd" "dark-seafoam
-let s:guiLilac       = "#c5a3ff" "lilac
-let s:guiLavender    = "#ae81ff" "lavender
-let s:guiRose        = "#ffb8d1" "rose
-let s:guiGoldenrod   = "#fffea0" "goldenrod
+let s:guiDustyLilac  = "#efe6ff" " dusty-lilac
+let s:guiSeafoam     = "#c2ffdf" " seafoam
+let s:guiSilver      = "#f8f8f0" " silver
+let s:guiFuschia     = "#f92672" " fuschia
+let s:guiPeach       = "#ff857f" " peach
+let s:guiGold        = "#e6c000" " gold
+let s:guiDarkSeafoam = "#80ffbd" " dark-seafoam
+let s:guiLilac       = "#c5a3ff" " lilac
+let s:guiLavender    = "#ae81ff" " lavender
+let s:guiRose        = "#ffb8d1" " rose
+let s:guiGoldenrod   = "#fffea0" " goldenrod
 
 let s:ctermShadow      = "233"
 let s:ctermDarkGray    = "235"
@@ -83,7 +83,7 @@ let g:airline#themes#mpk#palette.replace = airline#themes#generate_color_map(s:R
 let g:airline#themes#mpk#palette.replace_modified = s:modified
 
 " Inactive mode
-let s:IN1 = [ s:guiGray , s:guiDarkGray , s:ctermGray , s:ctermDarkGray ]
+let s:IN1 = [ s:guiGray , s:guiFuschia , s:ctermGray , s:ctermDarkGray ]
 let s:IN2 = [ s:guiBgPurple , s:guiShadow , s:ctermBgPurple , s:ctermShadow ]
 let s:IN3 = [ s:guiBgPurple , s:guiShadow , s:ctermBgPurple , s:ctermShadow ]
 let g:airline#themes#mpk#palette.inactive = airline#themes#generate_color_map(s:IN1, s:IN2, s:IN3)

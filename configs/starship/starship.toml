@@ -35,7 +35,7 @@ myred    = "#bd8293"
 myblue   = "#6591a9"
 mylblue  = "#64b9cc"
 myturq   = "#82bdac"
-mypink  = "#ff91cd"
+mypink   = "#ff91cd"
 
 [line_break]
 disabled = true
