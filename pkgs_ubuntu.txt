@@ -11,6 +11,8 @@ pipx
 slop
 
 # for vimspector/ALE
+python-is-python3
+python3-setuptools
 gdb
 shellcheck
 nodejs
@@ -18,5 +20,6 @@ shfmt
 clang-format
 
 # for YouCompleteMe
+build-essential
 cmake
 python3-dev

@@ -240,6 +240,10 @@ nnoremap <leader>e :Explore<CR>
 nnoremap <leader>- :put! =repeat('-', 72)<CR>
 " Write a line of equals:
 nnoremap <leader>= :put! =repeat('=', 72)<CR>
+" Set vimspector breakpoint:
+nnoremap <F9> :VimspectorToggleBreakpoint<CR>
+" Launch vimspector/continue to next breakpoint:
+nnoremap <F5> :VimspectorContinue<CR>
 " Close vimspector:
 nnoremap <F2> :VimspectorReset<CR>
 " Access popups in vimspector:
