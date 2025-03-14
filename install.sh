@@ -13,8 +13,8 @@ read -r -p "Update the entire system? (Y/n): " ANS_UPDATE
 case ${ANS_UPDATE} in
 Y) case ${ID} in
 	ubuntu)
-		sudo apt -y update
-		sudo apt -y upgrade
+		sudo apt-get -y update
+		sudo apt-get -y upgrade
 		;;
 	*) ;;
 	esac ;;
@@ -26,7 +26,7 @@ ubuntu)
 	while read -r PACKAGE; do
 		# ignore empty lines and comments
 		[[ -z "${PACKAGE}" || "${PACKAGE}" =~ ^# ]] && continue
-		sudo apt install -y "${PACKAGE}"
+		sudo apt-get install -y "${PACKAGE}"
 	done <pkgs_ubuntu.txt
 	;;
 *) ;;
