@@ -34,6 +34,7 @@ alias nloade='nload -a 60 devices enp920 -u m -i 20000 -o 2000'
 alias nloadw='nload -a 60 devices wlp8s0 -u m -i 20000 -o 2000'
 alias temp='watch -n 1 sensors'
 alias tempgpu='watch -n 5 nvidia-smi -q -d temperature'
+alias sysupdate='sudo apt update; sudo apt upgrade'
 alias scratch='vim ~/tmp/scratch.txt'
 
 alias gl='git log'
@@ -144,7 +145,7 @@ fi
 
 # safer rm
 function rm() {
-    ls -lRh "$@"
+    ls -alRh "$@"
     command rm -I "$@"  # -I only prompts for 3 or fewer input arguments
 }
 
