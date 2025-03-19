@@ -113,7 +113,7 @@ if [[ -z "${SKIP_VIM}" ]]; then
   [ -d "${HOME}/.vim/bundle/YouCompleteMe" ] &&
     ln -sf "${SCRIPTDIR}/configs/vim/.YouCompleteMe.global_extra_conf.py" \
       "${HOME}/.vim/bundle/YouCompleteMe/global_extra_conf.py"
-  cd "${HOME}/.vim/bundle/YouCompleteMe" && python3 install.py --clangd-completer
+  cd "${HOME}/.vim/bundle/YouCompleteMe" && CC=clang CXX=clang++ python3 install.py --clangd-completer
 	mkdir -p "${HOME}/.vim/undo"
 fi
 
