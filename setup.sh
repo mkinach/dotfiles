@@ -29,6 +29,7 @@ mkdir -p "${SCRIPTDIR}/tmp/desktop"
 touch "${SCRIPTDIR}/tmp/tmp_aliases"
 touch "${SCRIPTDIR}/tmp/tmp_bashrc"
 touch "${SCRIPTDIR}/tmp/tmp_vimrc"
+touch "${SCRIPTDIR}/tmp/tmp_i3"
 
 # check whether necessary software is installed
 if ! which vim >/dev/null 2>&1; then
