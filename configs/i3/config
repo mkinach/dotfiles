@@ -279,6 +279,7 @@ floating_modifier $mod
 
 # force certain programs to load as floatable
 for_window [class="feh"] floating enable
+for_window [class="spectacle"] floating enable
 
 # always open programs in their own workspace (via xprop)
 #assign [class="Gimp"] GIMP
