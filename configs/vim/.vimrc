@@ -177,8 +177,9 @@ set foldlevel=2
 command NN set nonumber!                " exclamation toggles the binary option
 command RO set readonly!
 command WW set wrap | set textwidth=72  " enable a word wrap
-command NW set nowrap                   " disable a word wrap
-set textwidth=0                         " disable by default
+command NW set wrap | set textwidth=0   " disable a word wrap
+command NVW set nowrap                  " disable a visual word wrap
+set textwidth=0                         " disable word wrap by default
 
 " Color characters beyond the word wrap distance
 "highlight ColorColumn ctermbg=magenta ctermfg=black
