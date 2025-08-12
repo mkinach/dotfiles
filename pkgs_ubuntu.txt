@@ -6,6 +6,7 @@ konsole
 git
 j4-dmenu-desktop
 pipx
+ncal
 
 # for screenrec.sh
 slop
