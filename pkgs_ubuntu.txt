@@ -7,6 +7,7 @@ git
 j4-dmenu-desktop
 pipx
 ncal
+magic-wormhole
 
 # for screenrec.sh
 slop

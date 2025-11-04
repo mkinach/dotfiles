@@ -7,7 +7,7 @@
 
 # set the trap
 ctrl_c() {
-	exit 1
+  exit 1
 }
 trap ctrl_c 2 #SIGINT
 
@@ -15,13 +15,13 @@ count=0
 
 case $# in
 1)
-	while read -r dir; do
-		((count++))
-		printf "\n %d  Processing %s\n\n" "${count}" "${dir}"
+  while read -r dir; do
+    ((count++))
+    printf "\n %d  Processing %s\n\n" "${count}" "${dir}"
 
-		# do something here!
+    # do something here!
 
-	done <"${1}"
-	;;
+  done <"${1}"
+  ;;
 *) printf "\nError: please supply one file containing names of directories\n\n" ;;
 esac
