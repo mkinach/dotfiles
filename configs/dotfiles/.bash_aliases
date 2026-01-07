@@ -64,6 +64,26 @@ alias i3="cd ${DOTFILES}/configs/i3"
 alias prompt="vim ${DOTFILES}/configs/starship/starship.toml"
 alias mypyplot="python ${DOTFILES}/scripts/mypyplot.py"
 
+alias ws='wormhole send'
+function wst() {
+    local TMPFILE=$(mktemp /tmp/wormhole-text.XXXXXX)
+    vim "${TMPFILE}"
+    if [ -s "${TMPFILE}" ]; then
+        wormhole send "${TMPFILE}"
+    else
+        echo "File is empty, not sending."
+    fi
+    rm -f "${TMPFILE}"
+}
+function wr() {
+    read -p "Change to /tmp before receiving? (y/n) " ANSWER
+    if [[ "${ANSWER}" =~ ^[Yy]$ ]]; then
+        (cd /tmp && wormhole receive "$@")
+    else
+        wormhole receive "$@"
+    fi
+}
+
 alias python='python3'
 
 # initialize conda environments

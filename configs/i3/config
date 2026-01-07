@@ -281,6 +281,9 @@ floating_modifier $mod
 for_window [class="feh"] floating enable
 for_window [class="spectacle"] floating enable
 
+# create custom scratchpad
+bindsym $mod+grave [title=".*zim.*"] scratchpad show
+
 # always open programs in their own workspace (via xprop)
 #assign [class="Gimp"] GIMP
 
