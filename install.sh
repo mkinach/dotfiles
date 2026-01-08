@@ -42,3 +42,6 @@ fi
 
 # install starship
 wget -P /tmp https://starship.rs/install.sh && mkdir -p "${HOME}/opt/starship" && sh /tmp/install.sh -y -b "${HOME}/opt/starship"
+
+# install ollama
+curl -fsSL https://ollama.com/install.sh | sh && ollama pull phi3:mini

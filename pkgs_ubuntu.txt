@@ -26,3 +26,8 @@ build-essential
 clang
 cmake
 python3-dev
+
+# for vim-ollama
+python3-httpx
+python3-jinja2
+python3-requests

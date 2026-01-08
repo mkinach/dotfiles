@@ -33,6 +33,9 @@ Plugin 'dense-analysis/ale'
 
 " YouCompleteMe
 Plugin 'ycm-core/YouCompleteMe'
+
+" vim-ollama
+Plugin 'gergap/vim-ollama'
 " ======================================================================
 call vundle#end()            " required
 filetype plugin indent on    " required
