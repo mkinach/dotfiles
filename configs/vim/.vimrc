@@ -36,6 +36,7 @@ Plugin 'ycm-core/YouCompleteMe'
 
 " vim-ollama
 Plugin 'gergap/vim-ollama'
+
 " ======================================================================
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -258,8 +259,8 @@ nnoremap <leader>2 :ALEEnable<CR>
 " Run ALEFix in the current buffer:
 nnoremap <leader>3 :ALEFix<CR>
 " Move to next ALE error:
-nnoremap <Tab>   :ALENext<CR>
-nnoremap <S-Tab> :ALEPrevious<CR>
+nnoremap <leader>] :ALENext<CR>
+nnoremap <leader>[ :ALEPrevious<CR>
 " Find symbols via YouCompleteMe:
 nnoremap <leader>4 <Plug>(YCMFindSymbolInDocument)
 nnoremap <leader>5 <Plug>(YCMFindSymbolInWorkspace)
