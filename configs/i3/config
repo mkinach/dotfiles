@@ -18,6 +18,7 @@ include ../../tmp/tmp_i3
 
 # set script variables
 set $mod Mod1
+set $modalt Mod4
 #set $browser --no-startup-id /usr/bin/firefox
 set $browser --no-startup-id /snap/bin/firefox
 set $terminal --no-startup-id /usr/bin/konsole
@@ -58,9 +59,9 @@ bindsym $mod+Shift+b exec --no-startup-id "i3-nagbar -t error -m 'Do you really 
 
 # enable volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && play -q -n synth 0.05 sin 580 norm -10 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
-bindsym Mod4+Right exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && play -q -n synth 0.05 sin 580 norm -10 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
+bindsym $modalt+Right exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && play -q -n synth 0.05 sin 580 norm -10 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && play -q -n synth 0.05 sin 580 norm -10 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
-bindsym Mod4+Left exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && play -q -n synth 0.05 sin 580 norm -10 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
+bindsym $modalt+Left exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && play -q -n synth 0.05 sin 580 norm -10 2> /dev/null && dunstify -r 111 `pactl list sinks | grep 'Volume:' | awk '{print $5}' | head -n 1`"
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
 
 # enable screen brightness function keys
@@ -171,29 +172,29 @@ bindsym $mod+Shift+p exec --no-startup-id .config/i3/i3-resize right
 bindsym $mod+Shift+i exec --no-startup-id .config/i3/i3-resize down
 bindsym $mod+Shift+o exec --no-startup-id .config/i3/i3-resize up
 
-# switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+## switch to workspace
+#bindsym $mod+1 workspace 1
+#bindsym $mod+2 workspace 2
+#bindsym $mod+3 workspace 3
+#bindsym $mod+4 workspace 4
+#bindsym $mod+5 workspace 5
+#bindsym $mod+6 workspace 6
+#bindsym $mod+7 workspace 7
+#bindsym $mod+8 workspace 8
+#bindsym $mod+9 workspace 9
+#bindsym $mod+0 workspace 10
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+## move focused container to workspace
+#bindsym $mod+Shift+1 move container to workspace 1
+#bindsym $mod+Shift+2 move container to workspace 2
+#bindsym $mod+Shift+3 move container to workspace 3
+#bindsym $mod+Shift+4 move container to workspace 4
+#bindsym $mod+Shift+5 move container to workspace 5
+#bindsym $mod+Shift+6 move container to workspace 6
+#bindsym $mod+Shift+7 move container to workspace 7
+#bindsym $mod+Shift+8 move container to workspace 8
+#bindsym $mod+Shift+9 move container to workspace 9
+#bindsym $mod+Shift+0 move container to workspace 10
 
 # switch between workspaces and monitors
 bindsym $mod+Control+Right focus output right
@@ -258,7 +259,7 @@ bindsym $mod+r exec i3-input -F "rename workspace to "%s" -P 'New name for this 
 bindsym $mod+Shift+s move scratchpad
 
 # toggle scratchpad windows
-bindsym $mod+s [class=.*] scratchpad show
+bindsym $modalt+s [class=.*] scratchpad show
 
 
 ########################################################################
@@ -266,7 +267,7 @@ bindsym $mod+s [class=.*] scratchpad show
 ########################################################################
 
 # toggle between tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $modalt+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -282,7 +283,9 @@ for_window [class="feh"] floating enable
 for_window [class="spectacle"] floating enable
 
 # create custom scratchpad
-bindsym $mod+grave [title=".*zim.*"] scratchpad show
+bindsym $modalt+Return [title=".*zim.*"] scratchpad show
+bindsym $modalt+grave [title=".*Konsole.*"] scratchpad show
+bindsym $modalt+1 [title=".*Firefox.*"] scratchpad show
 
 # always open programs in their own workspace (via xprop)
 #assign [class="Gimp"] GIMP
