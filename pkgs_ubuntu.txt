@@ -8,6 +8,7 @@ j4-dmenu-desktop
 pipx
 ncal
 magic-wormhole
+redshift
 
 # for screenrec.sh
 slop

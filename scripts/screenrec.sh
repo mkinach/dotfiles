@@ -2,7 +2,7 @@
 
 # screenrec.sh: record the screen using ffmpeg
 
-# NOTE: This script assumes you have xwininfo, ffmpeg and slop installed
+# NOTE: This script assumes you have xwininfo, ffmpeg, and slop installed
 
 # usage instructions
 usage() {
