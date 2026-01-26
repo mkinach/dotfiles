@@ -284,6 +284,8 @@ for_window [class="spectacle"] floating enable
 
 # create custom scratchpad
 bindsym $modalt+Return [title=".*zim.*"] scratchpad show
+bindsym Menu [title=".*zim.*"] scratchpad show
+bindsym Mod4 [title=".*zim.*"] scratchpad show
 bindsym $modalt+grave [title=".*Konsole.*"] scratchpad show
 bindsym $modalt+1 [title=".*Firefox.*"] scratchpad show
 
