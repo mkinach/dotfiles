@@ -23,6 +23,8 @@ CONFIGDIR="${HOME}/.config"
 
 mkdir -p "${OPTDIR}"
 mkdir -p "${TMPDIR}"
+mkdir -p "${SHAREDIR}"
+mkdir -p "${CONFIGDIR}"
 touch "${TMPDIR}/scratch.txt"
 mkdir -p "${TMPDIR}/no-backup"
 mkdir -p "${SCRIPTDIR}/tmp/desktop"
