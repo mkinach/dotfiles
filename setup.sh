@@ -32,21 +32,21 @@ touch "${SCRIPTDIR}/tmp/tmp_vimrc"
 touch "${SCRIPTDIR}/tmp/tmp_i3"
 
 # check whether necessary software is installed
-if ! which vim >/dev/null 2>&1; then
+if ! command -v vim >/dev/null 2>&1; then
 	printf "\n Vim not installed -- skipping.\n"
 	SKIP_VIM=1
-elif ! which gvim >/dev/null 2>&1 && gvim --version | grep -q +clipboard; then
+elif ! command -v gvim >/dev/null 2>&1 && gvim --version | grep -q +clipboard; then
 	printf "\n WARNING: current Vim installation does not support copy-to-clipboard\n"
 	printf "            (you may want to install another version, e.g. gvim,\n"
 	printf "             if the problem is not fixed after this script finishes).\n"
 fi
 
-if ! which i3 >/dev/null 2>&1; then
+if ! command -v i3 >/dev/null 2>&1; then
 	printf "\n i3 not installed -- skipping.\n"
 	SKIP_I3=1
 fi
 
-if ! which dunst >/dev/null 2>&1; then
+if ! command -v dunst >/dev/null 2>&1; then
 	printf "\n Dunst not installed -- skipping.\n"
 	SKIP_DUNST=1
 fi
@@ -56,7 +56,7 @@ if ! [ -d "${HOME}/opt/starship" ]; then
 	SKIP_STARSHIP=1
 fi
 
-if ! which konsole >/dev/null 2>&1; then
+if ! command -v konsole >/dev/null 2>&1; then
 	printf "\n Konsole not installed -- skipping.\n"
 	SKIP_KONSOLE=1
 fi
