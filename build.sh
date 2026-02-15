@@ -8,7 +8,7 @@ exec > >(tee -a "$LOGFILE") 2>&1
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DEFFILE="${SCRIPT_DIR}/pkgs_apptainer.def"
-SIFFILE="${SCRIPT_DIR}/devenv.sif"
+SIFFILE="${SCRIPT_DIR}/env.sif"
 
 if [[ ! -f "${DEFFILE}" ]]; then
 	echo "Error: ${DEFFILE} not found"
@@ -24,6 +24,7 @@ read -r -p "Build Apptainer image? (Y/n): " ANS_BUILD
 case ${ANS_BUILD} in
 Y)
 	sudo apptainer build "${SIFFILE}" "${DEFFILE}"
+  echo "Moving ${SIFFILE} to /tmp/${SIFFILE}"
 	mv "${SIFFILE}" /tmp/
 	echo
 	;;
