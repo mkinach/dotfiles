@@ -3,34 +3,39 @@ From: ubuntu:24.04
 
 %post
     apt-get update
+
     apt-get install -y \
         vim-gtk3 \
         pipx \
-        magic-wormhole \
+        magic-wormhole
+
+    # for vimspector/ALE
+    apt-get install -y \
         python-is-python3 \
         python3-setuptools \
-        python3-pip \
         gdb \
         shellcheck \
         nodejs \
         shfmt \
-        clang-format \
+        clang-format
+
+    # for YouCompleteMe
+    apt-get install -y \
         build-essential \
         clang \
         cmake \
-        python3-dev \
-        locales
+        python3-dev
 
-    # Set up UTF-8 locale
-    locale-gen en_US.UTF-8
-
-    # Install pipx tools to a system location
+    # for vimspector/ALE
     export PIPX_HOME=/opt/pipx
     export PIPX_BIN_DIR=/opt/pipx/bin
-    pip3 install pipx
     pipx install flake8
     pipx install ruff
     pipx install yapf
+
+    # set up UTF-8 locale
+    apt-get install -y locales
+    locale-gen en_US.UTF-8
 
 %environment
     export LANG=en_US.UTF-8
@@ -38,7 +43,6 @@ From: ubuntu:24.04
     export PATH="/opt/pipx/bin:$PATH"
 
 %runscript
-    echo "Remote dev environment"
     echo "  vim:       $(vim --version | head -1)"
     echo "  ruff:      $(ruff --version)"
     echo "  clang:     $(clang --version | head -1)"

@@ -16,14 +16,15 @@ if [[ ! -f "${DEFFILE}" ]]; then
 fi
 
 if ! command -v apptainer &>/dev/null; then
-	echo "Error: apptainer not found"
+	echo "Error: Apptainer not found"
 	exit 1
 fi
 
-read -r -p "Build apptainer image? (Y/n): " ANS_BUILD
+read -r -p "Build Apptainer image? (Y/n): " ANS_BUILD
 case ${ANS_BUILD} in
 Y)
 	sudo apptainer build "${SIFFILE}" "${DEFFILE}"
+	mv "${SIFFILE}" /tmp/
 	echo
 	;;
 *) ;;
