@@ -21,27 +21,37 @@ Y) case ${ID} in
 *) ;;
 esac
 
-case ${ID} in
-ubuntu)
-	while read -r PACKAGE; do
-		# ignore empty lines and comments
-		[[ -z "${PACKAGE}" || "${PACKAGE}" =~ ^# ]] && continue
-		sudo apt-get install -y "${PACKAGE}"
-	done <pkgs_ubuntu.txt
-	;;
+read -r -p "Install system packages? (Y/n): " ANS_SYSTEM
+case ${ANS_SYSTEM} in
+Y) case ${ID} in
+	ubuntu)
+		while read -r PACKAGE; do
+			# ignore empty lines and comments
+			[[ -z "${PACKAGE}" || "${PACKAGE}" =~ ^# ]] && continue
+			sudo apt-get install -y "${PACKAGE}"
+		done <pkgs_ubuntu.txt
+
+		if command -v pipx &>/dev/null; then
+			while read -r PACKAGE; do
+				# ignore empty lines and comments
+				[[ -z "${PACKAGE}" || "${PACKAGE}" =~ ^# ]] && continue
+				pipx install "${PACKAGE}"
+			done <pkgs_pipx.txt
+		fi
+		;;
+	*) ;;
+	esac ;;
 *) ;;
 esac
 
-if command -v pipx &>/dev/null; then
-	while read -r PACKAGE; do
-		# ignore empty lines and comments
-		[[ -z "${PACKAGE}" || "${PACKAGE}" =~ ^# ]] && continue
-		pipx install "${PACKAGE}"
-	done <pkgs_pipx.txt
-fi
+read -r -p "Install Starship? (Y/n): " ANS_STARSHIP
+case ${ANS_STARSHIP} in
+Y) wget -P /tmp https://starship.rs/install.sh && mkdir -p "${HOME}/opt/starship" && sh /tmp/install.sh -y -b "${HOME}/opt/starship" ;;
+*) ;;
+esac
 
-# install starship
-wget -P /tmp https://starship.rs/install.sh && mkdir -p "${HOME}/opt/starship" && sh /tmp/install.sh -y -b "${HOME}/opt/starship"
-
-# install ollama
-curl -fsSL https://ollama.com/install.sh | sh && ollama pull phi3:mini
+read -r -p "Install Ollama? (Y/n): " ANS_OLLAMA
+case ${ANS_OLLAMA} in
+Y) curl -fsSL https://ollama.com/install.sh | sh && ollama pull phi3:mini ;;
+*) ;;
+esac
