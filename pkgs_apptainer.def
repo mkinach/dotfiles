@@ -10,7 +10,8 @@ From: ubuntu:24.04
     apt-get install -y \
         vim-gtk3 \
         pipx \
-        magic-wormhole
+        magic-wormhole \
+        tldr
 
     # for vimspector/ALE
     apt-get install -y \

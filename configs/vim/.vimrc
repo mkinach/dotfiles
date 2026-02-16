@@ -35,7 +35,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'ycm-core/YouCompleteMe'
 
 " vim-ollama
-Plugin 'gergap/vim-ollama'
+"Plugin 'gergap/vim-ollama'
 
 " ======================================================================
 call vundle#end()            " required

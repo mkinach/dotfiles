@@ -7,8 +7,16 @@ konsole
 git
 pipx
 ncal
+arandr
+htop
+tldr
+ffmpeg
+nload
+cpupower-gui
 redshift
 magic-wormhole
+kompare
+screen
 
 # for screenrec.sh
 slop
