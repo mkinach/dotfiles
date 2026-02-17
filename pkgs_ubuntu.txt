@@ -9,7 +9,7 @@ pipx
 ncal
 arandr
 htop
-tldr
+tealdeer
 ffmpeg
 nload
 cpupower-gui

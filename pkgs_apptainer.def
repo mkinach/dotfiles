@@ -11,7 +11,7 @@ From: ubuntu:24.04
         vim-gtk3 \
         pipx \
         magic-wormhole \
-        tldr
+        tealdeer
 
     # for vimspector/ALE
     apt-get install -y \

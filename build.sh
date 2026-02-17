@@ -23,9 +23,7 @@ fi
 read -r -p "Build Apptainer image? (Y/n): " ANS_BUILD
 case ${ANS_BUILD} in
 Y)
-	sudo apptainer build "${SIFFILE}" "${DEFFILE}"
-  echo "Moving ${SIFFILE} to /tmp/${SIFFILE}"
-	mv "${SIFFILE}" /tmp/
+	sudo apptainer build "${SIFFILE}" "${DEFFILE}" && echo "Moving ${SIFFILE} to /tmp/${SIFFILE}" && mv "${SIFFILE}" /tmp/
 	echo
 	;;
 *) ;;
