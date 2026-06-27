@@ -1,5 +1,8 @@
 " Custom settings for Vim
 
+" Enable Vim features (don't force compatibility with vi)
+set nocompatible
+
 " Source other Vim settings
 let g:dotfiles_path = fnamemodify(resolve(expand("~/.vimrc")), ":p:h:h:h")
 for vim_file in glob(g:dotfiles_path . "/tmp/*vimrc", 0, 1)
@@ -89,9 +92,6 @@ let g:ycm_global_ycm_extra_conf = expand('~/.vim/bundle/YouCompleteMe/global_ext
 " Some netrw settings
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
-
-" Enable Vim features (don't force compatibility with vi)
-set nocompatible
 
 " Avoid saving backup files all over the place
 set nobackup
@@ -235,7 +235,7 @@ nnoremap . :bn<CR>
 " Delete current buffer (note that  is special char for <C-/>):
 nnoremap  :bd<CR>
 " List all buffers:
-nnoremap <C-m> :ls<CR>
+nnoremap <C-n> :ls<CR>
 " Quickly enter buffer commands:
 nnoremap <C-b> :b
 " Open netrw:

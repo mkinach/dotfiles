@@ -43,7 +43,7 @@ def plot_data(files):
     plt.xlim(left=float(args.xmin)) if args.xmin else None
     plt.xlim(right=float(args.xmax)) if args.xmax else None
     plt.ylim(bottom=float(args.ymin)) if args.ymin else None
-    plt.ylim(top=float(args.ymax)) if args.ymin else None
+    plt.ylim(top=float(args.ymax)) if args.ymax else None
 
     # add gridlines
     ax.grid(True)

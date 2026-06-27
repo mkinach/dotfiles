@@ -16,17 +16,17 @@ SCRIPTDIR="$(
 	cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit
 	pwd -P
 )"
-TMPDIR="${HOME}/tmp"
-OPTDIR="${HOME}/opt"
+MYTMPDIR="${HOME}/tmp"
+MYOPTDIR="${HOME}/opt"
 SHAREDIR="${HOME}/.local/share"
 CONFIGDIR="${HOME}/.config"
 
-mkdir -p "${OPTDIR}"
-mkdir -p "${TMPDIR}"
+mkdir -p "${MYOPTDIR}"
+mkdir -p "${MYTMPDIR}"
 mkdir -p "${SHAREDIR}"
 mkdir -p "${CONFIGDIR}"
-touch "${TMPDIR}/scratch.txt"
-mkdir -p "${TMPDIR}/no-backup"
+touch "${MYTMPDIR}/scratch.txt"
+mkdir -p "${MYTMPDIR}/no-backup"
 mkdir -p "${SCRIPTDIR}/tmp/desktop"
 touch "${SCRIPTDIR}/tmp/tmp_aliases"
 touch "${SCRIPTDIR}/tmp/tmp_bashrc"

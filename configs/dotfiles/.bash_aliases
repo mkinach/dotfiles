@@ -285,7 +285,7 @@ function zipup() {
 	esac
 	filepath="$(dirname "${1}")"
 	filename="$(basename "${1}")"
-	if [[ -d "${filename}" ]]; then
+	if [[ -d "${1}" ]]; then
 		zip -r "${filename}.zip" "${filename}"
 	fi
 }
