@@ -11,6 +11,7 @@ alias svi='sudo -E vim'
 alias mysudo='sudo -E env "PATH=$PATH"'
 alias please='sudo'
 alias sk='sudo -k'
+alias crm='command rm'
 alias l='ls --color -F'
 alias ls='ls --color -F'
 alias la='ls -alh'
@@ -37,6 +38,7 @@ alias tempgpu='watch -n 5 nvidia-smi -q -d temperature'
 alias cal='ncal -d $(date "+%Y-%m-%d") -C -3'
 alias sysupdate='sudo apt update; sudo apt upgrade'
 alias scratch='vim ~/tmp/scratch.txt'
+alias {tt,tmptmp}='mkdir -p /tmp/tmp && cd /tmp/tmp'
 
 alias gl='git log'
 alias glp='git log --oneline --decorate --graph --all'
@@ -60,6 +62,7 @@ alias tmp_bashrc="vim ${DOTFILES}/tmp/tmp_bashrc"
 alias tmp_aliases="vim ${DOTFILES}/tmp/tmp_aliases"
 alias tmp_vimrc="vim ${DOTFILES}/tmp/tmp_vimrc"
 alias tmp_i3="vim ${DOTFILES}/tmp/tmp_i3"
+alias tmp_gitconfig="vim ${DOTFILES}/tmp/tmp_gitconfig"
 alias i3="cd ${DOTFILES}/configs/i3"
 alias prompt="vim ${DOTFILES}/configs/starship/starship.toml"
 alias mypyplot="python ${DOTFILES}/scripts/mypyplot.py"

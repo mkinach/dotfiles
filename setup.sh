@@ -32,6 +32,7 @@ touch "${SCRIPTDIR}/tmp/tmp_aliases"
 touch "${SCRIPTDIR}/tmp/tmp_bashrc"
 touch "${SCRIPTDIR}/tmp/tmp_vimrc"
 touch "${SCRIPTDIR}/tmp/tmp_i3"
+touch "${SCRIPTDIR}/tmp/tmp_gitconfig"
 
 # check whether necessary software is installed
 if ! command -v vim >/dev/null 2>&1; then
@@ -98,6 +99,7 @@ esac
 for DOTFILE in "${DOTFILES[@]}"; do
 	ln -sf "${SCRIPTDIR}/configs/dotfiles/${DOTFILE}" "${HOME}/${DOTFILE}"
 done
+ln -sf "${SCRIPTDIR}/tmp/tmp_gitconfig" "${HOME}/.tmp_gitconfig"
 
 if [[ -z "${SKIP_VIM}" ]]; then
 	ln -sf "${SCRIPTDIR}/configs/vim/.vimrc" "${HOME}/.vimrc"
@@ -106,17 +108,17 @@ if [[ -z "${SKIP_VIM}" ]]; then
 	gvim -v +PluginInstall +qall &&
 		ln -sf "${SCRIPTDIR}/configs/vim/mpk.vim" \
 			"${HOME}/.vim/bundle/vim-airline-themes/autoload/airline/themes/mpk.vim"
-  [ -d "${HOME}/.vim/bundle/vimspector" ] &&
-    mkdir -p "${HOME}/.vim/bundle/vimspector/configurations/linux/_all" &&
-      ln -sf "${SCRIPTDIR}/configs/vim/.vimspector.json_python" \
-        "${HOME}/.vim/bundle/vimspector/configurations/linux/_all/python.json" &&
-      ln -sf "${SCRIPTDIR}/configs/vim/.vimspector.json_bash" \
-        "${HOME}/.vim/bundle/vimspector/configurations/linux/_all/bash.json"
+	[ -d "${HOME}/.vim/bundle/vimspector" ] &&
+		mkdir -p "${HOME}/.vim/bundle/vimspector/configurations/linux/_all" &&
+		ln -sf "${SCRIPTDIR}/configs/vim/.vimspector.json_python" \
+			"${HOME}/.vim/bundle/vimspector/configurations/linux/_all/python.json" &&
+		ln -sf "${SCRIPTDIR}/configs/vim/.vimspector.json_bash" \
+			"${HOME}/.vim/bundle/vimspector/configurations/linux/_all/bash.json"
 	gvim -v +VimspectorInstall +qall
-  [ -d "${HOME}/.vim/bundle/YouCompleteMe" ] &&
-    ln -sf "${SCRIPTDIR}/configs/vim/.YouCompleteMe.global_extra_conf.py" \
-      "${HOME}/.vim/bundle/YouCompleteMe/global_extra_conf.py"
-  cd "${HOME}/.vim/bundle/YouCompleteMe" && CC=clang CXX=clang++ python3 install.py --clangd-completer
+	[ -d "${HOME}/.vim/bundle/YouCompleteMe" ] &&
+		ln -sf "${SCRIPTDIR}/configs/vim/.YouCompleteMe.global_extra_conf.py" \
+			"${HOME}/.vim/bundle/YouCompleteMe/global_extra_conf.py"
+	cd "${HOME}/.vim/bundle/YouCompleteMe" && CC=clang CXX=clang++ python3 install.py --clangd-completer
 	mkdir -p "${HOME}/.vim/undo"
 fi
 

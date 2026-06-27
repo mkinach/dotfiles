@@ -1,9 +1,11 @@
-[user]
-	name = mkinach
-	email = mkinach@users.noreply.github.com
 [core]
 	editor = vim
 [merge]
 	tool = kompare
 [diff]
 	guitool = kompare
+[include]
+    path = ~/.tmp_gitconfig
+#[user]
+#	name = <username>
+#	email = <username>@users.noreply.github.com
