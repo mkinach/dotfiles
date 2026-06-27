@@ -38,7 +38,7 @@ touch "${SCRIPTDIR}/tmp/tmp_gitconfig"
 if ! command -v vim >/dev/null 2>&1; then
 	printf "\n Vim not installed -- skipping.\n"
 	SKIP_VIM=1
-elif ! command -v gvim >/dev/null 2>&1 && gvim --version | grep -q +clipboard; then
+elif ! vim --version | grep -q +clipboard; then
 	printf "\n WARNING: current Vim installation does not support copy-to-clipboard\n"
 	printf "            (you may want to install another version, e.g. gvim,\n"
 	printf "             if the problem is not fixed after this script finishes).\n"
@@ -65,7 +65,7 @@ if ! command -v konsole >/dev/null 2>&1; then
 fi
 
 # get the list of relevant dotfiles
-DOTFILES=($(ls -A "./configs/dotfiles"))
+DOTFILES=($(ls -A "${SCRIPTDIR}/configs/dotfiles"))
 
 echo
 read -r -p "Archive current dotfiles? (Y/n): " ANS_DOTFILES
@@ -118,7 +118,7 @@ if [[ -z "${SKIP_VIM}" ]]; then
 	[ -d "${HOME}/.vim/bundle/YouCompleteMe" ] &&
 		ln -sf "${SCRIPTDIR}/configs/vim/.YouCompleteMe.global_extra_conf.py" \
 			"${HOME}/.vim/bundle/YouCompleteMe/global_extra_conf.py"
-	cd "${HOME}/.vim/bundle/YouCompleteMe" && CC=clang CXX=clang++ python3 install.py --clangd-completer
+  (cd "${HOME}/.vim/bundle/YouCompleteMe" && CC=clang CXX=clang++ python3 install.py --clangd-completer)
 	mkdir -p "${HOME}/.vim/undo"
 fi
 

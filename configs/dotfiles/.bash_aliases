@@ -95,7 +95,7 @@ function py() {
 
 	if [ $# -gt 1 ]; then
 		echo "Error: too many arguments; expected 0 or 1 argument."
-		exit 1
+		return 1
 	fi
 
 	if [ $# -eq 0 ]; then

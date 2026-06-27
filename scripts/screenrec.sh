@@ -26,7 +26,7 @@ which ffmpeg >/dev/null 2>&1 || {
 	exit 1
 }
 which slop >/dev/null 2>&1 || {
-	echo 'ffmpeg not found. Exiting.'
+	echo 'slop not found. Exiting.'
 	exit 1
 }
 

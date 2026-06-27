@@ -8,8 +8,8 @@ fi
 
 # source other bashrc and aliases
 DOTFILES_PATH=$(dirname $(dirname $(dirname "$(readlink -f "${BASH_SOURCE}")")))
-if [ -f ${DOTFILES_PATH}/tmp/*bashrc ];  then . ${DOTFILES_PATH}/tmp/*bashrc; fi
-if [ -f ${DOTFILES_PATH}/tmp/*aliases ]; then . ${DOTFILES_PATH}/tmp/*aliases; fi
+if [ -f ${DOTFILES_PATH}/tmp/tmp_bashrc ];  then . ${DOTFILES_PATH}/tmp/tmp_bashrc; fi
+if [ -f ${DOTFILES_PATH}/tmp/tmp_aliases ]; then . ${DOTFILES_PATH}/tmp/tmp_aliases; fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

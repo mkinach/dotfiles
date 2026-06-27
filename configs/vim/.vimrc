@@ -84,7 +84,7 @@ let g:ycm_extra_conf_vim_data = [
   \  'g:ycm_python_interpreter_path',
   \  'g:ycm_python_sys_path'
   \]
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/global_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = expand('~/.vim/bundle/YouCompleteMe/global_extra_conf.py')
 
 " Some netrw settings
 let g:netrw_liststyle = 3
@@ -113,7 +113,6 @@ set number
 set ruler
 
 " Set custom tab behaviour
-filetype plugin indent on
 set smarttab
 set smartindent
 set autoindent
